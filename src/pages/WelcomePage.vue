@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { WelcomeContent } from "@/modules/welcome/";
+import { WelcomeContent } from '@/modules/welcome/'
 </script>
 
 <template>
@@ -7,5 +7,3 @@ import { WelcomeContent } from "@/modules/welcome/";
         <welcome-content />
     </main>
 </template>
-
-<style scoped></style>

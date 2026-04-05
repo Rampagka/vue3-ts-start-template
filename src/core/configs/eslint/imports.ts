@@ -1,13 +1,13 @@
-import { Linter } from "eslint";
-import importPlugin from "eslint-plugin-import-x";
+import { Linter } from 'eslint'
+import importPlugin from 'eslint-plugin-import-x'
 
-const MODULES = ["about", "welcome"];
+const MODULES = ['about', 'welcome']
 
 // Общий паттерн — запрет всех относительных импортов (./ и ../)
 const noRelativeImports = {
-    regex: "^\\./",
-    message: "Относительные импорты запрещены — используй алиас @/.",
-};
+    regex: '^\\.{1,2}/',
+    message: 'Относительные импорты запрещены — используй алиас @/.',
+}
 
 // Для каждого модуля генерируем правила:
 // 1. Запрет относительных импортов
@@ -16,26 +16,26 @@ const noRelativeImports = {
 const moduleOverrides: Linter.Config[] = MODULES.map((mod) => ({
     files: [`src/modules/${mod}/**`],
     rules: {
-        "no-restricted-imports": [
-            "error",
+        'no-restricted-imports': [
+            'error',
             {
                 patterns: [
                     noRelativeImports,
                     {
                         regex: `^@/modules/${mod}(/index\\.[tj]sx?)?$`,
                         message:
-                            "Внутри своего модуля используй полный путь (@/modules/.../file), а не public API.",
+                            'Внутри своего модуля используй полный путь (@/modules/.../file), а не public API.',
                     },
                     {
                         regex: `^@/modules/(?!${mod}/)[^/]+/.+`,
                         message:
-                            "Импорт из другого модуля — только через public API (@/modules/название).",
+                            'Импорт из другого модуля — только через public API (@/modules/название).',
                     },
                 ],
             },
         ],
     },
-}));
+}))
 
 export default [
     {
@@ -44,8 +44,8 @@ export default [
         },
         // Базовые правила — для файлов не покрытых overrides (common/, core/ и т.д.)
         rules: {
-            "no-restricted-imports": [
-                "error",
+            'no-restricted-imports': [
+                'error',
                 {
                     patterns: [noRelativeImports],
                 },
@@ -58,22 +58,22 @@ export default [
 
     // Правило для pages / App / main — только public API
     {
-        files: ["src/App.vue", "src/pages/**", "src/main.ts"],
+        files: ['src/App.vue', 'src/pages/**', 'src/main.ts'],
         rules: {
-            "no-restricted-imports": [
-                "error",
+            'no-restricted-imports': [
+                'error',
                 {
                     patterns: [
                         noRelativeImports,
                         {
-                            regex: "^@/modules/([^/]+)/.+",
+                            regex: '^@/modules/([^/]+)/.+',
                             message:
-                                "В pages / App.vue / main.ts разрешён импорт из модулей ТОЛЬКО через public API (@/modules/название). " +
-                                "Глубокие пути запрещены — добавь нужный экспорт в index.ts модуля.",
+                                'В pages / App.vue / main.ts разрешён импорт из модулей ТОЛЬКО через public API (@/modules/название). ' +
+                                'Глубокие пути запрещены — добавь нужный экспорт в index.ts модуля.',
                         },
                     ],
                 },
             ],
         },
     },
-] satisfies Linter.Config[];
+] satisfies Linter.Config[]

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppHeader from "@/common/components/app-header.vue";
+import AppHeader from '@/common/components/app-header.vue'
 </script>
 
 <template>
@@ -8,5 +8,3 @@ import AppHeader from "@/common/components/app-header.vue";
         <router-view></router-view>
     </div>
 </template>
-
-<style scoped></style>

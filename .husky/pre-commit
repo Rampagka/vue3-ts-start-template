@@ -1,1 +1,1 @@
-HUSKY=0 npm test
+npx lint-staged

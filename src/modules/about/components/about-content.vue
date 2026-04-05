@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { storeToRefs } from "pinia";
-import { useAboutStore } from "@/modules/about/store/about.store.ts";
+import { useAboutStore } from '@/modules/about/store/about.store.ts'
 
-const aboutStore = useAboutStore();
+import { storeToRefs } from 'pinia'
 
-const { user } = storeToRefs(aboutStore);
+const aboutStore = useAboutStore()
+
+const { user } = storeToRefs(aboutStore)
 </script>
 
 <template>
@@ -34,5 +35,3 @@ const { user } = storeToRefs(aboutStore);
         </ul>
     </div>
 </template>
-
-<style scoped></style>
