@@ -1,0 +1,12 @@
+<script setup lang="ts">
+import AppHeader from "@/common/components/app-header.vue";
+</script>
+
+<template>
+    <app-header></app-header>
+    <div class="container">
+        <router-view></router-view>
+    </div>
+</template>
+
+<style scoped></style>

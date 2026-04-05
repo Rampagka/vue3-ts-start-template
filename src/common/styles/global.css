@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@layer base {
+    * {
+        @apply dark:text-white;
+    }
+    h1 {
+        @apply text-4xl leading-[130%] font-bold text-green-500;
+    }
+    p {
+        @apply text-xl leading-[130%] opacity-80 dark:text-white;
+    }
+    html {
+        @apply dark:bg-gray-900;
+    }
+}
+
+@layer utilities {
+    .container {
+        @apply mx-auto h-dvh w-[50vw] p-[10px] pt-[80px];
+    }
+}
