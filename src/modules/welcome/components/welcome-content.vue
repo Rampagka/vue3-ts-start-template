@@ -1,13 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useTheme } from '@/common/composables/use-theme'
+
+import { useWelcomeStore } from '@/modules/welcome/store/welcome.store'
+
+const store = useWelcomeStore()
+const { theme, toggleTheme } = useTheme()
+</script>
 
 <template>
-    <h1>Hello claude code</h1>
-    <p>You can study information about users by following the links in the site header.</p>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequatur earum expedita,
-        modi nam porro quo recusandae reprehenderit temporibus, tenetur unde, velit? Dolorem eaque
-        modi molestiae nemo ratione recusandae velit! Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Amet animi commodi, consequuntur molestias mollitia perspiciatis quis ut.
-        Animi culpa, distinctio hic iure nesciunt nobis officia porro quidem quod rem, repellendus.
-    </p>
+    <section class="flex flex-col items-center gap-8 pt-24">
+        <h1 class="text-3xl font-bold">Vue 3 Starter</h1>
+
+        <div class="flex items-center gap-6">
+            <button class="rounded-md border px-4 py-2" @click="store.decrement">−</button>
+            <span class="w-12 text-center font-mono text-xl">{{ store.count }}</span>
+            <button class="rounded-md border px-4 py-2" @click="store.increment">+</button>
+        </div>
+
+        <button class="rounded-md border px-4 py-2" @click="toggleTheme">Theme: {{ theme }}</button>
+    </section>
 </template>

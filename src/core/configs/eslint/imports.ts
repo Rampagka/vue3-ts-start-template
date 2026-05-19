@@ -1,7 +1,8 @@
 import { Linter } from 'eslint'
 import importPlugin from 'eslint-plugin-import-x'
+import fs from 'fs'
 
-const MODULES = ['about', 'welcome']
+const MODULES = fs.readdirSync('src/modules') as string[]
 
 // Общий паттерн — запрет всех относительных импортов (./ и ../)
 const noRelativeImports = {
@@ -39,6 +40,7 @@ const moduleOverrides: Linter.Config[] = MODULES.map((mod) => ({
 
 export default [
     {
+        files: ['src/**'],
         plugins: {
             import: importPlugin,
         },

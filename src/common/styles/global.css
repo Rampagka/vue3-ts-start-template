@@ -1,22 +1,18 @@
 @import 'tailwindcss';
+@import './variables.css';
 
-@layer base {
-    h1 {
-        @apply text-4xl leading-[130%] font-bold text-green-500 dark:text-white;
-    }
-    p {
-        @apply text-xl leading-[130%] opacity-80 dark:text-white;
-    }
-    a {
-        @apply dark:text-white;
-    }
-    html {
-        @apply dark:bg-gray-900;
-    }
+@theme inline {
+    --color-accent: var(--color-accent);
+    --color-accent-dark: var(--color-accent-dark);
+    --color-main-text: var(--color-main-text);
+    --color-background-primary: var(--color-background-primary);
+    --color-label-primary: var(--color-label-primary);
 }
 
-@layer utilities {
-    .container {
-        @apply mx-auto h-dvh w-[50vw] p-[10px] pt-[80px];
-    }
+body {
+    background-color: var(--color-background-primary);
+    color: var(--color-main-text);
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }

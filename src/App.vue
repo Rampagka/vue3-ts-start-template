@@ -4,7 +4,7 @@ import AppHeader from '@/common/components/app-header.vue'
 
 <template>
     <app-header></app-header>
-    <div class="container">
-        <router-view></router-view>
+    <div class="mx-auto max-w-[1100px]">
+        <router-view />
     </div>
 </template>

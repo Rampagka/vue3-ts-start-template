@@ -1,11 +1,9 @@
-/* eslint-disable no-restricted-imports */
 import baseConfig from './src/core/configs/eslint/base'
-import moduleStructure from './src/core/configs/eslint/module-structure'
 import importsConfig from './src/core/configs/eslint/imports'
-/* eslint-enable no-restricted-imports */
+import moduleStructure from './src/core/configs/eslint/module-structure'
 
-import { globalIgnores } from 'eslint/config'
 import { defineConfigWithVueTs } from '@vue/eslint-config-typescript'
+import { globalIgnores } from 'eslint/config'
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
 // import { configureVueProject } from '@vue/eslint-config-typescript'

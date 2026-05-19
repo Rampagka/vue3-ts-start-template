@@ -1,1 +1,1 @@
-export { WelcomeContent } from "@/modules/welcome/components";
+export { WelcomeContent } from '@/modules/welcome/components'

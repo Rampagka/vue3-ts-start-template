@@ -37,3 +37,12 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+# Claude
+.claude
+.claude/settings.local.json
+nul
+
+# Markdown — ignore planning/notes, keep docs
+*.md
+!README.md
