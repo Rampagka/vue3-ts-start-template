@@ -1,4 +1,4 @@
-# vue3-ts-starter
+# vue3-ts-start-template
 
 Opinionated Vue 3 starter template with enforced module boundaries, full TypeScript, and a modern toolchain ready for production.
 
